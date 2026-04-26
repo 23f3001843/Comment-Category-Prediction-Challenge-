@@ -1,76 +1,73 @@
-# 🧠 Comment Category Prediction
+# Comment Category Prediction
 
-## 📌 Overview
-This project focuses on building a machine learning model to predict the category assigned to user-generated comments on an online discussion platform. The dataset includes textual content along with metadata such as user engagement signals, symbolic indicators, and system-generated features.
+## Overview
+This project focuses on building a machine learning model to predict the category assigned to user-generated comments on an online discussion platform. The dataset combines textual content with metadata such as engagement signals, symbolic indicators, and internal system features.
 
-The goal is to analyze these diverse features and develop a model capable of accurately classifying comments into predefined categories.
-
----
-
-## 📊 Dataset Description
-The dataset consists of three main files:
-
-- **train.csv** → Contains features along with the target label  
-- **test.csv** → Contains features without labels (used for prediction)  
-- **sample_submission.csv** → Format for submitting predictions  
-
-### 🔑 Features
-
-- **comment** → Raw text content  
-- **created_date** → Timestamp of comment  
-- **post_id** → Thread identifier  
-- **emoticon_1 / emoticon_2 / emoticon_3** → Symbol indicators  
-- **upvote / downvote** → Engagement metrics  
-- **if_1 / if_2** → Internal platform signals  
-- **race / religion / gender / disability** → Topic indicators  
-- **label** → Target variable (4 categories)
+The objective is to leverage both text and structured data to accurately classify comments into one of four categories.
 
 ---
 
-## ⚙️ Approach
+## Dataset
 
-### 🧹 Data Preprocessing
-- Handled missing values (filled categorical with `"unknown"`)
+The dataset is hosted on Kaggle and is not included in this repository due to size constraints.
+
+Download from: https://www.kaggle.com/competitions/comment-category-prediction-challenge
+
+### Files:
+- `train.csv` → Training data with labels  
+- `test.csv` → Test data without labels  
+- `sample_submission.csv` → Submission format  
+
+After downloading, place the files in the same directory as the notebook.
+
+---
+
+## Approach
+
+### Data Preprocessing
+- Handled missing values (categorical → `"unknown"`, others → `0`)
 - Converted text data to string format
-- Extracted numerical and categorical features
-- Standardized numeric features using scaling
+- Separated text, numeric, and categorical features
+- Applied scaling to numeric features
 
-### 🧠 Feature Engineering
-- **TF-IDF Vectorization** (5000 features, uni + bi-grams)
-- Combined text + numeric features using sparse matrices
-- Created advanced features:
-  - Engagement score (upvote - downvote)
+---
+
+### Feature Engineering
+- **TF-IDF Vectorization** (5000 features, unigrams + bigrams)
+- Combined text and numeric features using sparse matrices
+- Engineered additional features:
+  - Engagement score (`upvote - downvote`)
   - Engagement ratio
-  - Comment length & word count
+  - Comment length and word count
   - Time-based features (hour, day of week)
 
 ---
 
-## 🤖 Models Used
+## Models Implemented
 
-### Linear Models
 - Logistic Regression  
 - SGD Classifier  
-
-### Traditional ML
 - Naive Bayes  
 - KNN  
 - SVM  
-
-### Ensemble Methods
 - Random Forest  
 - AdaBoost  
 - Stacking Classifier  
-
-### Neural Network
 - MLP Classifier  
-
-### 🚀 Final Model
-- **LightGBM (Best Performing Model)**  
 
 ---
 
-## 📈 Results
+## Final Model
+
+**LightGBM (Best Performing Model)**  
+
+- Validation Accuracy: **91.4%**  
+- Achieved using advanced feature engineering + optimized hyperparameters  
+- Demonstrated best performance among all tested models  
+
+---
+
+## Results Summary
 
 | Model                | Accuracy |
 |---------------------|---------|
@@ -78,31 +75,58 @@ The dataset consists of three main files:
 | Random Forest       | ~0.91   |
 | Stacking            | ~0.91   |
 | MLP                 | ~0.90   |
-| **LightGBM**        | **0.914** ✅ |
-
-- Best validation accuracy: **91.4%**
-- Demonstrates strong performance using combined text and engineered features
+| **LightGBM**        | **0.914** |
 
 ---
 
-## 📊 Key Insights
+## Key Insights
 
 - Text features (TF-IDF) are highly informative  
-- Combining numeric + text features improves performance  
-- Feature engineering significantly boosts accuracy  
-- Ensemble models outperform basic classifiers  
+- Combining structured + unstructured data improves performance  
+- Feature engineering significantly boosts model accuracy  
+- Ensemble models outperform simpler models  
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Python**
-- **Pandas, NumPy**
-- **Scikit-learn**
-- **LightGBM**
-- **Matplotlib, Seaborn**
+- Python  
+- Pandas, NumPy  
+- Scikit-learn  
+- LightGBM  
+- Matplotlib, Seaborn  
 
 ---
 
-## 📁 Project Structure
+## Project Structure
+```
+comment-category-prediction/
+├── 23f3001843-notebook-t12026.ipynb
+└── README.md
+```
+---
 
+## How to Run
+
+1. Clone this repository  
+2. Download dataset from Kaggle  
+3. Place `.csv` files in the project folder  
+4. Open and run the notebook: jupyter notebook
+
+
+---
+
+## Future Improvements
+
+- Hyperparameter tuning for further optimization  
+- Deep learning approaches (LSTM, Transformers)  
+- Better handling of class imbalance  
+- Use of advanced NLP techniques (word embeddings, BERT)
+
+---
+
+## Author
+
+**Ritoma Nandi**  
+
+---
