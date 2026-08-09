@@ -130,3 +130,5 @@ comment-category-prediction/
 **Ritoma Nandi**  
 
 ---
+
+*This project was completed as part of the Business Data Management (BDM) Capstone Project under the IIT Madras BS Degree Programme.*
