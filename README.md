@@ -131,4 +131,4 @@ comment-category-prediction/
 
 ---
 
-*This project was completed as part of the Business Data Management (BDM) Capstone Project under the IIT Madras BS Degree Programme.*
+*This project was completed as part of the Machine Learning Practices (MLP) Project under the IIT Madras BS Degree Programme.*
